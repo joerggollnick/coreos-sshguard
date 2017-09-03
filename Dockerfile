@@ -1,5 +1,8 @@
 FROM alpine:latest
-MAINTAINER Nick Owens <mischief@offblast.org> (@mischief)
-RUN apk add --update iptables ip6tables sshguard && rm -rf /var/cache/apk/*
+LABEL maintainer="github+sshguard@wurzelbenutzer.de"
+RUN apk add --no-cache --update-cache iptables ip6tables sshguard && mkdir -p /var/db/sshguard/ 
+# as sshguard uses %PREFIX%/etc/sshguard.conf
+COPY . /usr/etc/
+VOLUME /var/db
 ENTRYPOINT ["/usr/sbin/sshguard"]
 
