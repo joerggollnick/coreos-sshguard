@@ -1,6 +1,10 @@
 # coreos-sshguard
 running sshguard on coreos
 
+## not maintained / not tested anymore
+
+I'm not using coreos anymore, so docker host can be secured with standard sshguard package 
+
 ## usage
 
 ```
